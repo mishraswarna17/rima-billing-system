@@ -1,4 +1,6 @@
 # 🧾 Rima Billing System
+![CI](https://github.com/mishraswarna17/rima-billing-system/actions/workflows/ci-cd.yml/badge.svg)
+
 
 A simple Java-based web application for generating customer bills using **JSP, Servlets, Maven, and Apache Tomcat**.
 
