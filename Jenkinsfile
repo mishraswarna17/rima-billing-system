@@ -24,10 +24,8 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
                 bat '''
-                curl -u admin:admin \
-                -T target\\rima-billing.war ^
+                curl -u admin:admin -T target\rima-billing.war "http://localhost:8181/manager/text/deploy?path=/rima-billing&update=true"
 
-                "http://localhost:8181/manager/text/deploy?path=/rima-billing&update=true"
                 '''
             }
         }
