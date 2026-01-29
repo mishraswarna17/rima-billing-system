@@ -21,7 +21,7 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-        stage(stage('Deploy to Tomcat') {
+        stage('Deploy to Tomcat') {
     steps {
         bat '''
         curl -u admin:admin ^
