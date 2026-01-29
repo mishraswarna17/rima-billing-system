@@ -15,15 +15,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
+      stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn -version'
+                bat 'mvn clean package'
             }
         }
-
         stage('Deploy to Tomcat') {
             steps {
-                sh '''
+                bat '''
                 curl -u admin:admin \
                 -T target/*.war \
                 "http://localhost:8181/manager/text/deploy?path=/rima-billing&update=true"
