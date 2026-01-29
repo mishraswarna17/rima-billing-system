@@ -25,7 +25,8 @@ pipeline {
             steps {
                 bat '''
                 curl -u admin:admin \
-                -T target/*.war \
+                -T target//rima-billing.war ^
+
                 "http://localhost:8181/manager/text/deploy?path=/rima-billing&update=true"
                 '''
             }
