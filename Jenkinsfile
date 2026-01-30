@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'docker run -d -p 9090:8080 rima-billing'
+                bat 'docker run -d -p 9091:8080 rima-billing'
             }
         }
     }
