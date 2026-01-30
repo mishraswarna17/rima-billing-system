@@ -21,13 +21,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t rima-billing .'
+                bat 'docker build -t rima-billing .'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 9090:8080 rima-billing'
+                bat 'docker run -d -p 9090:8080 rima-billing'
             }
         }
     }
