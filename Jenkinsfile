@@ -26,9 +26,14 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                bat 'docker run -d -p 9091:8080 rima-billing'
-            }
-        }
+    steps {
+        bat '''
+        docker stop rima-billing-container || echo Container not running
+        docker rm rima-billing-container || echo Container not found
+        docker run -d --name rima-billing-container -p 9091:8080 rima-billing
+        '''
+    }
+}
+
     }
 }
