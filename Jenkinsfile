@@ -2,27 +2,14 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-        jdk 'JDK21'
-    }
-
-    environment {
-        IMAGE_NAME = "rima-billing"
-        CONTAINER_NAME = "rima-billing-container"
+        jdk 'jdk21'
+        maven 'Maven3'
     }
 
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean package'
             }
         }
 
@@ -34,27 +21,14 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh 'docker build -t rima-billing .'
             }
         }
 
-        stage('Docker Deploy') {
+        stage('Deploy') {
             steps {
-                sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-                docker run -d -p 9090:8080 --name $CONTAINER_NAME $IMAGE_NAME
-                '''
+                sh 'docker run -d -p 9090:8080 rima-billing'
             }
-        }
-    }
-
-    post {
-        success {
-            echo "✅ Deployment successful!"
-        }
-        failure {
-            echo "❌ Pipeline failed!"
         }
     }
 }
