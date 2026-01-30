@@ -1,28 +1,28 @@
-# 🧾 Rima Billing System
-![CI](https://github.com/mishraswarna17/rima-billing-system/actions/workflows/ci-cd.yml/badge.svg)
+# Rima Billing System
 
-
-A simple Java-based web application for generating customer bills using **JSP, Servlets, Maven, and Apache Tomcat**.
+A Java-based Billing System web application built using JSP, Servlets, and Maven, deployed on Apache Tomcat with a complete CI/CD pipeline using Jenkins and GitHub.
 
 ---
 
 ## 🚀 Features
-- Create customer bills
-- Calculate subtotal, GST (18%), and total amount
+- Create and generate customer bills
 - JSP-based UI
-- Servlet-based backend logic
-- MySQL database connectivity
-- Maven project structure
+- Servlet-based backend
+- WAR deployment on Tomcat
+- CI/CD using Jenkins
+- Version control using GitHub
 
 ---
 
-## 🛠️ Tech Stack
-- Java (JDK 21)
+## 🛠 Tech Stack
+- Java (JDK 17)
 - JSP & Servlets
-- Apache Tomcat 9
 - Maven
-- MySQL
-- VS Code
+- Apache Tomcat 9
+- Jenkins (CI/CD)
+- Git & GitHub
+- Docker
+- JUnit (Testing)
 
 ---
 
